@@ -1,0 +1,41 @@
+{
+  "name": "dawa-sathi",
+  "version": "1.0.0",
+  "description": "Dawa Sathi",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install && tsc",
+    "start": "ts-node src/server.ts",
+    "prod": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.9",
+    "resend": "^6.0.1",
+    "twilio": "^5.7.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^1.4.13",
+    "@types/node": "^22.15.34",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
