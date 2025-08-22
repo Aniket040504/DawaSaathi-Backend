@@ -1,8 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { sendOTPToPhone } from '../utils/twilioClient';
 import {sendOTPToEmail} from '../utils/resendClient'
-import {createUser,findbyphone,updateUser,findbyemail} from '../repositories/userAuth.repositories';
+import {createUser,updateUser,findbyemail} from '../repositories/userAuth.repositories';
 import {createDashboard} from '../repositories/dashboard.repository';
 import { IUser} from '../interfaces/IUser';
 import { Error } from 'mongoose';
@@ -102,8 +101,7 @@ export const verifyOTPService=async (email:string,otp:string) :Promise<any> => {
        const err=error as Error;
         console.log(err,'err in userVerifyservice');
         throw err;
-    }
-    
+    }   
 }
 
 // Forgot Password

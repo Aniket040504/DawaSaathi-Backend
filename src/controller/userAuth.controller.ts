@@ -13,9 +13,10 @@ export const userSignup=async (
 
     try{
 
-        const {email,phone,password,confirmpassword}=req.body;
+        const {email,password,confirmpassword}=req.body;
        //  if(!phone || !password || !confirmpassword || phone.length!=10) return res.status(400).json({msg:"Kindly fill all the fields"});
-        if(password!=confirmpassword) return res.status(400).json({msg:"Passwords do not not match"});
+        if(!email || !password || !confirmpassword) return res.status(400).json({msg:"Kindly fill all the fields"});
+        if(password!=confirmpassword) return res.status(400).json({msg:"Passwords do not match"});
 
        await userSignupservice(req.body);
         return res.status(202).json({
@@ -96,8 +97,8 @@ export const userLogin = async (req: Request, res: Response): Promise<any> => {
 
 export const forgotPassword=async (req:Request,res:Response): Promise<any>=>{
   try{
-  const {phone}=req.body;
-  const result=await forgotPasswordService(phone);
+  const {email}=req.body;
+  const result=await forgotPasswordService(email);
   return res.status(202).json({
     msg: result.message
   })
@@ -117,8 +118,8 @@ export const forgotPassword=async (req:Request,res:Response): Promise<any>=>{
 
 export const resetPassword=async (req:Request,res:Response):Promise<any>=>{
   try{
-   const {phone,newpass,otp}=req.body;
-   const result=await resetPasswordService(phone,newpass,otp);
+   const {email,newpass,otp}=req.body;
+   const result=await resetPasswordService(email,newpass,otp);
    res.status(202).json({
     msg:result.message
    }

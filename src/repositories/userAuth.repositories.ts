@@ -34,10 +34,10 @@ export const createUser=async (data:IUser) :Promise<any>=> {
     }
 }
 
-export const updateUser=async(phone:string, update:Partial<IUser>) :Promise<any>=>{
+export const updateUser=async(email:string, update:Partial<IUser>) :Promise<any>=>{
     try{
     return await userDetails.findOneAndUpdate(
-        {phone},
+        {email},
          update,
         {new:true}
         );
